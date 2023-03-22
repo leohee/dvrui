@@ -29,6 +29,7 @@ else ()
 endif ()
 
 file(GLOB UI_FILES "*.ui")
+file(GLOB INC_FILES "*.h")
 file(GLOB SRC_FILES "*.cpp")
 
 qt5_wrap_ui(UI_HEADERS ${UI_FILES})
@@ -51,6 +52,7 @@ message(STATUS "RESOURCE_FILES : ${RESOURCE_FILES}")
 
 
 add_executable(${TARGET_FILE} 
+  ${INC_FILES}
   ${UI_HEADERS}
   ${SRC_FILES}
   ${RESOURCE_FILES}
