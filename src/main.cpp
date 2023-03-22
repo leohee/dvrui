@@ -18,7 +18,6 @@
 //#include <QWSServer>
 #include "dvr_defines.h"
 #include "dvr_main.h"
-#include "predefine.h"
 #include "dvr_app_api.h"
 #include <QtCore/QTextCodec>
 /*----------------------------------------------------------------------------

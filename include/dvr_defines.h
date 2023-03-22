@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "dvr_app_api.h"
-#include "predefine.h"
 #include "coordinator.h"
 #include "strdefine.h"
 #include "struct.h"

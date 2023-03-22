@@ -28,17 +28,14 @@ else ()
 	message(FATAL_ERROR "Qt5Widgets not found. Please install first.")
 endif ()
 
-file(GLOB UI_FILES "*.ui")
-file(GLOB INC_FILES "*.h")
-file(GLOB SRC_FILES "*.cpp")
+file(GLOB UI_FILES "src/*.ui")
+file(GLOB INC_FILES "src/*.h")
+file(GLOB SRC_FILES "src/*.cpp")
 
 qt5_wrap_ui(UI_HEADERS ${UI_FILES})
-qt5_add_resources(RESOURCE_FILES "dvr_main.qrc")
-
 
 include_directories(
 	"include"
-	${CMAKE_CURRENT_BINARY_DIR}
 )
 
 link_directories(
@@ -46,25 +43,15 @@ link_directories(
 )
 
 message(STATUS "UI_FILES : ${UI_FILES}")
-message(STATUS "SRC_FILES : ${SRC_FILES}")
 message(STATUS "UI_HEADERS : ${UI_HEADERS}")
-message(STATUS "RESOURCE_FILES : ${RESOURCE_FILES}")
-
+message(STATUS "SRC_FILES : ${SRC_FILES}")
 
 add_executable(${TARGET_FILE} 
   ${INC_FILES}
   ${UI_HEADERS}
   ${SRC_FILES}
-  ${RESOURCE_FILES}
+  "dvrui.qrc"
 )
-
-#add_executable(${TARGET_FILE} 
-#  ${UI_FILES}
-#  ${UI_HEADERS}
-#  ${SRC_FILES}
-#  dvr_main.qrc
-#)
-
 
 target_link_libraries(${TARGET_FILE} 
 	Qt5::Widgets
